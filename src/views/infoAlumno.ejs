@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('./partials/head'); %>
+</head>
+<body>
+    <header>
+        <%- include('./partials/_header'); %>
+    </header>
+
+    <main>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-6">
+                    <dl class="row mt-5">
+                        <dt class="col-sm-3">LEGAJO</dt>
+                        <dd class="col-sm-9"><%= data.idlegajo %></dd>
+                      
+                        <dt class="col-sm-3">NOMBRE</dt>
+                        <dd class="col-sm-9"><%= data.nombre %></dd>
+                      
+                        <dt class="col-sm-3">APELLIDO</dt>
+                        <dd class="col-sm-9"><%= data.apellido %></dd>
+                      
+                        <dt class="col-sm-3 text-truncate">DNI</dt>
+                        <dd class="col-sm-9"><%= data.dni %></dd>
+                    
+                        <dt class="col-sm-3 text-truncate">TELÉFONO</dt>
+                        <dd class="col-sm-9"><%= data.telefono %></dd>
+            
+                        <dt class="col-sm-3 text-truncate">EMAIL</dt>
+                        <dd class="col-sm-9"><%= data.email %></dd>
+            
+                        <dt class="col-sm-3 text-truncate">FECHA DE NACIMIENTO</dt>
+                        <dd class="col-sm-9"><%= data.fechaDeNacimiento %></dd>
+            
+                        <dt class="col-sm-3 text-truncate">EDAD</dt>
+                        <dd class="col-sm-9"><%= data.edad %></dd>
+            
+                        <dt class="col-sm-3 text-truncate">DIRECCIÓN</dt>
+                        <dd class="col-sm-9"><%= data.direccion %></dd>
+            
+                        <dt class="col-sm-3 text-truncate">COMISIÓN</dt>
+                        <% if (data.Comision_idComision == 1) { %>
+                            <dd class="col-sm-9">A</dd>
+                        <% } else { %>
+                            <dd class="col-sm-9">B</dd>
+                        <% } %>
+                        
+            
+                        <dt class="col-sm-3 text-truncate">CARRERA</dt>
+                        <% if (data.Carrera_idCarrera == 1) { %>
+                            <dd class="col-sm-9">Tecnicatura en programación</dd>
+                        <% } else if (data.Carrera_idCarrera == 2) { %>
+                            <dd class="col-sm-9">Ingeniería</dd>
+                        <% } else { %>
+                            <dd class="col-sm-9">Enología</dd>
+                        <% } %>
+                      </dl>
+                </div>
+                <div class="col-6 mt-5">
+                    <form class="mb-3" action="/asistencias" method="get">
+                      <button type="submit" class="btn btn-primary"> VER ASISTENCIAS</button>
+                    </form>
+      
+                    <form class="mb-3" action="/calificaciones" method="get">
+                      <button type="submit" class="btn btn-primary"> VER CALIFICACIONES</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="../../public/js/bootstrap.min.js"></script>
+</body>
+</html>

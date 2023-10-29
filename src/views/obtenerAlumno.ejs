@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('./partials/head'); %>
+</head>
+<body>
+    <header>
+        <%- include('./partials/_header'); %>
+    </header>
+
+    <main>
+        <div class="container">
+            <form class="row g-3 mt-5" action="/getAlumno" method="post">
+                <div class="col-12 form-group">
+                    <input type="number" class="form-control" name="dni" id="dni" placeholder="Documento del alumno">
+                </div>
+                <div class="col-12">
+                    <button type="submit" class="btn btn-primary">Buscar alumno</button>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <script src="../../public/js/bootstrap.min.js"></script>
+</body>
+</html>

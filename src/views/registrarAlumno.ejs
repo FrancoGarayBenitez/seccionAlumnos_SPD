@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('./partials/head'); %>
+</head>
+<body>
+    <header>
+        <%- include('./partials/_header'); %>
+    </header>
+
+
+    <main>  
+        <div class="container">
+            <form class="row g-2 mt-4" action="/addAlumno" method="post">
+                <div class="col-4 form-group">
+                    <input type="number" class="form-control" name="legajo" id="legajo" placeholder="Inserte número de legajo">
+                </div>
+                <div class="col-4 form-group">
+                    <input type="text" class="form-control" name="first_name" id="first_name" placeholder="Nombre del alumno">
+                </div>
+                <div class="col-4 form-group">
+                    <input type="text" class="form-control" name="last_name" id="last_name" placeholder="Apellido del alumno">
+                </div>
+                <div class="col-4 form-group">
+                    <input type="number" class="form-control" name="dni" id="dni" placeholder="Documento del alumno">
+                </div>
+                <div class="col-8 form-group">
+                    <input type="email" class="form-control" name="email" id="email" placeholder="Email del alumno">
+                </div>
+                <div class="col-8 form-group">
+                    <input type="text" class="form-control" name="direccion" id="direccion" placeholder="Dirección del alumno">
+                </div>
+                <div class="col-4 form-group">
+                    <input type="number" class="form-control" name="tel" id="tel" placeholder="Teléfono del alumno">
+                </div>
+                <div class="col-md-6 form-group">
+                    <input type="date" class="form-control" name="fechaNac" id="fechaNac">
+                </div>
+                <div class="col-md-2 form-group">
+                    <input type="number" class="form-control" name="edad" id="edad" placeholder="Edad del alumno">
+                </div>
+                <div class="col-6 form-group">
+                    <label for="carrera" class="form-label mt-4">Seleccione la carrera</label>
+                    <select name="carrera" id="carrera" class="form-select">
+                        <option selected disabled="">Seleccione...</option>
+                        <option>Tecnicatura en programación</option>
+                        <option>Ingeniería</option>
+                        <option>Enología</option>
+                    </select>
+                </div>
+                <div class="col-6 form-group">
+                    <label for="comision" class="form-label mt-4">Comision</label>
+                    <select name="comision" id="comision" class="form-select">
+                        <option selected disabled="">Seleccione...</option>
+                        <option>Comisión A</option>
+                        <option>Comisión B</option>
+                    </select>
+                </div>
+
+                <!-- Button trigger modal -->
+                <div class="col-12">
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                        Registrar
+                    </button>
+                </div>
+                
+                <!-- Modal -->
+                <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+                    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                Alumno guardado correctamente
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                                <button type="submit" class="btn btn-primary">Guardar cambios</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+    </main>
+    <script src="../../public/js/bootstrap.min.js"></script>
+</body>
+</html>
