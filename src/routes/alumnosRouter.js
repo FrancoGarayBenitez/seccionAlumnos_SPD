@@ -8,6 +8,12 @@ router.get("/obtenerAlumno", alumnosController.renderObtenerAlumno)
 
 router.get('/registrarAlumno', alumnosController.renderRegistrarAlumno)
 
+router.get('/registroUsuario', alumnosController.renderRegistroUsuario)
+
+router.post('/addUser', alumnosController.registerUser)
+
+router.post('/auth', alumnosController.authUser)
+
 router.post('/getAlumno', alumnosController.alumnoByDni)
 
 router.post('/addAlumno', alumnosController.save)

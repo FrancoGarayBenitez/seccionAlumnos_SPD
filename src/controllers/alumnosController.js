@@ -1,3 +1,5 @@
+const bcryptjs = require('bcryptjs');
+const { use } = require('../routes/alumnosRouter');
 const controller = {};
 
 controller.renderIniciarSesion = (req, res) => {
@@ -8,9 +10,53 @@ controller.renderRegistrarAlumno = (req, res) => {
     res.render('registrarAlumno')
 }
 
+controller.renderRegistroUsuario = (req, res) => {
+    res.render('registroUsuario')
+}
+
 controller.renderObtenerAlumno = (req, res) => {
     res.render('obtenerAlumno')
 }
+
+
+controller.registerUser = async (req, res) => {
+    const userName = req.body.userName
+    const pass = req.body.passUser
+
+    const passwordHash = await bcryptjs.hash(pass, 8);
+
+    req.getConnection((err, conn) => {
+        conn.query('INSERT INTO empleado SET ?',{userName: userName, pass:passwordHash}, (err, result) => {
+            if (err) {
+                console.log(err);
+            } else {
+                res.redirect('/')
+            }
+        })
+    })
+}
+
+controller.authUser = async (req, res) => {
+    const username = req.body.username
+    const password = req.body.password
+
+    const passwordHash = await bcryptjs.hash(password, 8);
+
+    if(username && password) {
+        req.getConnection((err, conn) => {
+            conn.query('SELECT * FROM empleado WHERE userName = ?', [username], async (err, result) => {
+                if (result.length == 0 || !(await bcryptjs.compare(password, result[0].pass))) {
+                    res.send('USUARIO Y/O PASSWORD INCORRECTOS')
+                } else {
+                    res.redirect('/registrarAlumno')
+                }
+            })
+        })
+    }
+
+}
+
+
 
 
 controller.list = (req, res) => {
@@ -38,7 +84,6 @@ controller.alumnoByDni = (req, res) => {
         })
     })
 }
-
 
 controller.save = (req, res) => {
         const registroAlumno = req.body

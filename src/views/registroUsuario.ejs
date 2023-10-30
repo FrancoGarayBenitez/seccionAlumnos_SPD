@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../public/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../public/css/style.css">
+    <title>Document</title>
+</head>
+<body>
+    <img class="bg-img" src="../../public/images/bg_Main.jpg" alt="">
+    <div class="container min-vh-100 d-flex justify-content-center align-items-center">
+        <div class="row">
+            <h1 style="color: aliceblue;">Registro de usuarios</h1>
+            <form class="row g-3 mt-5" action="/addUser" method="post">
+                <div class="col-12 form-group">
+                    <input type="text" class="form-control" name="userName" id="userName" placeholder="Inserte un nombre de usuario">
+                </div>
+                <div class="col-12 form-group">
+                    <input type="password" class="form-control" name="passUser" id="passUser" placeholder="Inserte una contraseña">
+                </div>
+
+                <!-- Button trigger modal -->
+                <div class="col-12">
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                        Registrar
+                    </button>
+                </div>
+                
+                <!-- Modal -->
+                <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+                    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                Ha sido registrado correctamente.
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                                <button type="submit" class="btn btn-primary">Iniciar sesiòn</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+    </div>
+
+    <script src="../../public/js/bootstrap.min.js"></script>
+</body>
+</html>
